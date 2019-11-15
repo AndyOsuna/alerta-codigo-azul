@@ -11,14 +11,20 @@ include $_SERVER['DOCUMENT_ROOT'].'/includes/alarma.php';
 ?>
 
 <br>
-  <div class="container">
+  <div class="container py-5">
     <div class="row">
-      <div class="col-md-9">
-      <center>
-       <p>Nombre de usuario: <?php echo $user->usuario; ?></p>
-       <p>Rol en la página: <?php echo $rol ?></p>
+      <div class="col-md-6 mx-auto">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title h4 my-1">Datos personales</div>
+          </div>
+          <div class="card-body">
+            <p>Nombre de usuario: <?php echo $user->usuario; ?></p>
+            <p>Rol en la página: <?php echo $rol ?></p>
+
+          </div>
+        </div>
       </div>
-      </center>
     </div>
   </div>
 

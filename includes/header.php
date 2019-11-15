@@ -1,5 +1,5 @@
 <?php
-include('includes/configsql.php');
+include_once $_SERVER['DOCUMENT_ROOT'] . '/includes/configsql.php';
 
 if ($_SESSION['connected'] == false) {
   if (isset($loginvar)) {
@@ -30,8 +30,8 @@ if (isset($_SESSION['userIdLogeado'])) {
 } else if (!isset($_SESSION['userIdLogeado'])) {
   $_SESSION['userIdLogeado'] = '';
 }
-require_once 'includes/htmlpurifier/HTMLPurifier.includes.php';
-require_once 'includes/htmlpurifier/HTMLPurifier.auto.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/htmlpurifier/HTMLPurifier.includes.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/htmlpurifier/HTMLPurifier.auto.php';
 
 $configpurifuer = HTMLPurifier_Config::createDefault();
 $configpurifuer->set('Core.Encoding', 'ISO-8859-1');
@@ -45,14 +45,14 @@ $purifier = new HTMLPurifier($configpurifuer);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Hospital Blue Code</title>
-  <link rel="stylesheet" href="css/bootswatch-cosmo.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/bootswatch-cosmo.min.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body style="padding-top: 55px;">
 
   <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="index.php">Blue Code</a>
+    <a class="navbar-brand" href="/">Blue Code</a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -62,11 +62,11 @@ $purifier = new HTMLPurifier($configpurifuer);
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <?php if ($isAdmin == true) { ?>
             <li class="nav-item">
-              <a href="/admin/" class="nav-link">Panel Administrador</a>
+              <a href="/admin/index.php" class="nav-link">Panel Administrador</a>
             </li>
           <?php } ?>
           <li class="nav-item">
-            <a href="/usuario/" class="nav-link">Panel Usuario</a>
+            <a href="/usuario/index.php" class="nav-link">Panel Usuario</a>
           </li>
           <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Panel Usuario</a>
@@ -81,7 +81,7 @@ $purifier = new HTMLPurifier($configpurifuer);
         <li class="nav-item"> -->
       <?php
       if ($_SESSION["connected"] == true) { ?>
-        <a class="btn btn-outline-dark" href="<?PHP $_SERVER['DOCUMENT_ROOT'] ?>/logout.php">Cerrar sesión</a>
+        <a class="btn btn-outline-dark" href="/logout.php">Cerrar sesión</a>
       <?php } ?>
       <!-- </li>
       </ul> -->

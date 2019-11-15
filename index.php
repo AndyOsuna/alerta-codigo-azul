@@ -1,7 +1,7 @@
 <?php 
 $loginvar = false;
 include_once 'includes/header.php';
-include $_SERVER['DOCUMENT_ROOT'].'/includes/alarma.php';
+include_once 'includes/alarma.php';
 ?>
 
 <div class="jumbotron">
@@ -11,7 +11,5 @@ include $_SERVER['DOCUMENT_ROOT'].'/includes/alarma.php';
     <a class="btn btn-info" href="/llamados.php"><h1>Ver alertas</h1></a>
     <?php } ?>
 </div>
-<script>
-   //if(sessionStorage.getItem(''))
-</script>
+
 <?php include_once 'includes/footer.php'; ?>

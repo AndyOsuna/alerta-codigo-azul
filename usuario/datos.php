@@ -1,4 +1,6 @@
-<?php include_once $_SERVER['DOCUMENT_ROOT'].'/includes/header.php';
+<?php
+header("location: /");
+include_once $_SERVER['DOCUMENT_ROOT'].'/includes/header.php';
 include $_SERVER['DOCUMENT_ROOT'].'/includes/alarma.php';
 
 $resultados = mysqli_query($mysqlconn, "SELECT ubicacion, paciente, tipo, TIMESTAMPDIFF(SECOND, fecha_hora, fecha_hora_atendido) AS 'tiempo' FROM llamados WHERE `atendido` = 1");
